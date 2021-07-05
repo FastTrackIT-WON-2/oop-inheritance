@@ -33,5 +33,10 @@ namespace OopInheritance
         {
             Console.WriteLine($"Copying file '{this.Name}.{this.Extension}' to '{destinationPath}'");
         }
+
+        public static void GetRootFolder()
+        {
+            Console.WriteLine($@"Root folder is 'C:\'");
+        }
     }
 }
