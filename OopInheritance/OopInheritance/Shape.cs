@@ -1,4 +1,6 @@
-﻿namespace OopInheritance
+﻿using System;
+
+namespace OopInheritance
 {
     public abstract class Shape
     {
@@ -9,10 +11,14 @@
 
         public Point[] Points { get; }
 
+        public abstract string Name { get; }
+
         public abstract double Area { get; }
 
-        public void Rotate(double angleDegrees)
+        public virtual void Rotate(double angleDegrees)
         {
+            Console.WriteLine($"Rotating {Name} with {angleDegrees} degrees");
+
             foreach(Point p in this.Points)
             {
                 p.ApplyRotationTransform(angleDegrees);

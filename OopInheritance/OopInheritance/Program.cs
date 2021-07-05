@@ -7,14 +7,10 @@ namespace OopInheritance
         static void Main(string[] args)
         {
             Shape t = new Triangle(new Point(15, 15), new Point(23, 30), new Point(50, 25));
-            Console.WriteLine($"Triangle Area: {t.Area}");
-            t.Rotate(45);
-            Console.WriteLine($"Triangle Area: {t.Area}");
+            RotateShapeAndPrintArea(t);
 
             Shape r = new Rectangle(new Point(10, 10), 20, 10);
-            Console.WriteLine($"Rectangle Area: {r.Area}");
-            r.Rotate(45);
-            Console.WriteLine($"Rectangle Area: {r.Area}");
+            RotateShapeAndPrintArea(r);
 
             /*
 
@@ -34,6 +30,13 @@ namespace OopInheritance
 
             */
 
+        }
+
+        private static void RotateShapeAndPrintArea(Shape s)
+        {
+            Console.WriteLine($"{s.Name} Area: {s.Area}");
+            s.Rotate(45);
+            Console.WriteLine($"{s.Name} Area after rotation: {s.Area}");
         }
     }
 }

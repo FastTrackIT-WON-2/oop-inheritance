@@ -44,5 +44,14 @@ namespace OopInheritance
                 return Math.Round(area, 2);
             }
         }
+
+        public override string Name { get { return "Triangle"; } }
+
+        public override void Rotate(double angleDegrees)
+        {
+            Console.WriteLine($"Preparing to rotate a {Name} ...");
+            base.Rotate(angleDegrees);
+            Console.WriteLine($"{Name} was rotated with {angleDegrees} degrees...");
+        }
     }
 }

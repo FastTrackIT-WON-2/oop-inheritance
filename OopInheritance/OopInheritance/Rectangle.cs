@@ -47,6 +47,8 @@ namespace OopInheritance
             }
         }
 
+        public override string Name { get { return "Rectangle"; } }
+
         public override double Area
         {
             get
@@ -72,5 +74,14 @@ namespace OopInheritance
                 return area;
             }
         }
+
+        public override void Rotate(double angleDegrees)
+        {
+            Console.WriteLine($"Preparing to rotate a {Name} ...");
+            base.Rotate(angleDegrees);
+            Console.WriteLine($"{Name} was rotated with {angleDegrees} degrees...");
+        }
+
+
     }
 }
