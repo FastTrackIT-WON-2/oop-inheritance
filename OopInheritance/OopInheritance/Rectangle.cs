@@ -1,28 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OopInheritance
 {
     public class Rectangle : Shape
     {
         public Rectangle(Point topLeft, int width, int height)
+            : base(new[]
+                   {
+                       topLeft,
+                       new Point(topLeft.X + width, topLeft.Y),
+                       new Point(topLeft.X + width, topLeft.Y + height),
+                       new Point(topLeft.X, topLeft.Y + height)
+                   })
         {
-            this.TopLeft = topLeft;
-            this.TopRight = new Point(topLeft.X + width, topLeft.Y);
-            this.BottomLeft = new Point(topLeft.X, topLeft.Y + height);
-            this.BottomRight = new Point(topLeft.X + width, topLeft.Y + height);
         }
 
-        public Point TopLeft { get; }
+        public Point TopLeft 
+        { 
+            get
+            {
+                return this.Points[0];
+            }
+        }
 
-        public Point TopRight { get; }
+        public Point TopRight
+        {
+            get
+            {
+                return this.Points[1];
+            }
+        }
 
-        public Point BottomLeft { get; }
+        public Point BottomRight
+        {
+            get
+            {
+                return this.Points[2];
+            }
+        }
 
-        public Point BottomRight { get; }
+        public Point BottomLeft
+        {
+            get
+            {
+                return this.Points[3];
+            }
+        }
 
         public override double Area
         {
@@ -48,14 +71,6 @@ namespace OopInheritance
 
                 return area;
             }
-        }
-
-        public override void Rotate(double angleDegrees)
-        {
-            this.TopLeft.ApplyRotationTransform(angleDegrees);
-            this.TopRight.ApplyRotationTransform(angleDegrees);
-            this.BottomRight.ApplyRotationTransform(angleDegrees);
-            this.BottomLeft.ApplyRotationTransform(angleDegrees);
         }
     }
 }
